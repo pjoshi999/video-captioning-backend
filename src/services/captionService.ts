@@ -61,12 +61,15 @@ export const generateCaptions = async (videoPath: string): Promise<{
   return {
     captions,
     language: transcript.language_code || 'auto-detected',
-    duration,
-    confidence: transcript.confidence,
+    duration: duration ?? undefined,
+    confidence: transcript.confidence ?? undefined,
   };
 };
 
-const groupWordsIntoSegments = (words: any[], wordsPerSegment: number): CaptionSegment[] => {
+const groupWordsIntoSegments = (
+  words: { text: string; start: number; end: number }[], 
+  wordsPerSegment: number
+): CaptionSegment[] => {
   const segments: CaptionSegment[] = [];
 
   for (let i = 0; i < words.length; i += wordsPerSegment) {

@@ -1,6 +1,5 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import path from 'path';
 import { config, validateConfig } from './config';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
