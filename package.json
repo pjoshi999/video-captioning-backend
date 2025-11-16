@@ -6,9 +6,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "render-build": "npm install && npm run build"
+    "build": "npm install --production=false && tsc",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "express",
